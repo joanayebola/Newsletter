@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion, type Variants } from "framer-motion";
 
 const steps = [
     {
@@ -19,23 +20,70 @@ const steps = [
     },
 ];
 
+// Animation variants (TYPED)
+const container: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.15,
+            delayChildren: 0.1,
+        },
+    },
+};
+
+const item: Variants = {
+    hidden: { opacity: 0, y: 14 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.55,
+            ease: "easeOut",
+        },
+    },
+};
+
 export default function GettingStartedSection() {
     return (
-        <section className="w-full bg-[#f7f9f8] py-16 md:py-20">
+        <section className="w-full bg-[#f7f9f8] py-16 md:py-20 overflow-hidden">
             <div className="max-w-6xl mx-auto px-6 md:px-12 flex flex-col items-center">
-                {/* Heading */}
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-800 text-center">
+
+                {/* SECTION TITLE */}
+                <motion.h2
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-800 text-center"
+                >
                     How to start your Newsletter experience?
-                </h2>
+                </motion.h2>
 
-                {/* Steps grid */}
-                <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 w-full">
+                {/* STEPS GRID */}
+                <motion.div
+                    variants={container}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.4 }}
+                    className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 w-full"
+                >
                     {steps.map((step) => (
-                        <div key={step.title} className="flex">
-                            {/* Left vertical green line */}
-                            <div className="w-1 rounded-full bg-green-500 mr-4 md:mr-5" />
+                        <motion.div
+                            key={step.title}
+                            variants={item}
+                            className="flex"
+                        >
+                            {/* LEFT GREEN LINE */}
+                            <motion.div
+                                initial={{ scaleY: 0, opacity: 0 }}
+                                whileInView={{ scaleY: 1, opacity: 1 }}
+                                viewport={{ once: true, amount: 0.6 }}
+                                transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                                className="w-1 bg-green-500 rounded-full mr-4 md:mr-5 origin-top"
+                            />
 
-                            {/* Text */}
+                            {/* TEXT */}
                             <div>
                                 <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
                                     {step.title}
@@ -44,22 +92,29 @@ export default function GettingStartedSection() {
                                     {step.description}
                                 </p>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
 
-                {/* Illustration */}
-                <div className="mt-14 md:mt-16 flex justify-center">
+                {/* ILLUSTRATION */}
+                <motion.div
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+                    className="mt-14 md:mt-16 flex justify-center"
+                >
                     <div className="w-[230px] sm:w-[260px] md:w-[320px]">
                         <Image
-                            src="/how-it-works/getting-started-illustration.png" // <-- put your image here
+                            src="/how-it-works-getting-started-illustration.png"
                             alt="Person announcing newsletters"
                             width={320}
                             height={320}
-                            className="w-full h-auto"
+                            className="w-full h-auto select-none pointer-events-none"
                         />
                     </div>
-                </div>
+                </motion.div>
+
             </div>
         </section>
     );

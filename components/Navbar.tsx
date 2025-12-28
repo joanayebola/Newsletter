@@ -29,7 +29,7 @@ export default function Navbar() {
         </Link>
 
         <Link
-          href="#"
+          href="why-newsletter-app"
           className="text-green-600 font-semibold hover:text-green-700 transition"
         >
           Why NewsletterApp?
@@ -59,19 +59,16 @@ export default function Navbar() {
         aria-label="Toggle Menu"
       >
         <span
-          className={`block h-[3px] w-7 bg-black rounded transition-all ${
-            isOpen ? "rotate-45 translate-y-2" : ""
-          }`}
+          className={`block h-[3px] w-7 bg-black rounded transition-all ${isOpen ? "rotate-45 translate-y-2" : ""
+            }`}
         ></span>
         <span
-          className={`block h-[3px] w-7 bg-black rounded transition-all ${
-            isOpen ? "opacity-0" : ""
-          }`}
+          className={`block h-[3px] w-7 bg-black rounded transition-all ${isOpen ? "opacity-0" : ""
+            }`}
         ></span>
         <span
-          className={`block h-[3px] w-7 bg-black rounded transition-all ${
-            isOpen ? "-rotate-45 -translate-y-2" : ""
-          }`}
+          className={`block h-[3px] w-7 bg-black rounded transition-all ${isOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
         ></span>
       </button>
 

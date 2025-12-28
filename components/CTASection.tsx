@@ -8,7 +8,7 @@ export default function CTASection() {
     <section className="w-full bg-[#1E2329] py-20 md:py-28 text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-20 items-center">
 
-        {/* LEFT TEXT */}
+
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -23,7 +23,7 @@ export default function CTASection() {
             Subscribe and be ready for an amazing experience
           </p>
 
-          {/* Bullet Points */}
+
           <ul className="mt-8 space-y-4 text-gray-300 text-[17px]">
             <li className="flex items-center gap-3">
               <span className="text-green-400 text-xl">✔</span>
@@ -44,7 +44,7 @@ export default function CTASection() {
           </button>
         </motion.div>
 
-        {/* RIGHT IMAGE */}
+
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -58,7 +58,7 @@ export default function CTASection() {
             height={500}
             className="w-full h-auto select-none pointer-events-none"
           />
-        </motion.div> 
+        </motion.div>
       </div>
     </section>
   );
