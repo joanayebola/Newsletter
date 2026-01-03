@@ -35,7 +35,7 @@ export default function Navbar() {
           Why NewsletterApp?
         </Link>
 
-        <Link href="#" className="text-gray-600 hover:text-black transition">
+        <Link href="pricing" className="text-gray-600 hover:text-black transition">
           Pricing
         </Link>
 
